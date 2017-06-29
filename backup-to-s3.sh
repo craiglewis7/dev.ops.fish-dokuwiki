@@ -18,7 +18,7 @@ VERSION=0.1
 ##########################################################################
 
 BAKTIME=$(date +"%y-%m-%d-%H%M%S")
-BAKFILE="full_backup_$BAKTIME.tar.gz"
+BAKFILE="dokuwiki_full_backup_$BAKTIME.tar.gz"
 BUCKET="s3://dev-ops-fish"
 
 ##########################################################################
@@ -44,7 +44,7 @@ cd /var/backups/dokuwiki
 
 #Delete any old backups that exist, ensuring we only backup the latest 
 echo "cleanup old backups..."
-sudo find /var/backups/dokuwiki/full_backup_* -type f -mtime +3 -exec rm {} ;
+sudo find /var/backups/dokuwiki/dokuwiki_full_backup_* -type f -mtime +3 -exec rm {} ;
  
 #Using the awscli, back data into S3 bucket
 echo "uploading new file to S3..."
